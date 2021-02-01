@@ -32,5 +32,29 @@ export function shuffleDeck() {
     return shuffledDeck;
 }
 
+export function dealPlayerCards(shuffledDeck, usersArray) {
+    const cardsDealt = 2;
 
-console.log(shuffleDeck());
+    for (let i = 0; i < cardsDealt; i++) {
+        for (let user of usersArray) {
+            user.cards.push(shuffledDeck.pop());
+        }
+    }
+}
+
+const users = [
+    {
+        name: 'Cinturtle',
+        cards: []
+    },
+    {
+        name: 'b-rad',
+        cards: []
+    },
+];
+
+const deck = shuffleDeck();
+
+dealPlayerCards(deck, users);
+
+console.log(users);
