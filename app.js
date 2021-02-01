@@ -20,4 +20,17 @@ export function makeDeck() {
     return deck;
 }
 
-console.log(makeDeck());
+export function shuffleDeck() {
+    const unshuffledDeck = makeDeck();
+    const shuffledDeck = [];
+
+    for (let i = unshuffledDeck.length; i > 0; i--) {
+        const cardIndex = Math.floor(Math.random() * i);
+        shuffledDeck.push(...(unshuffledDeck.splice(cardIndex, 1)));
+    }
+
+    return shuffledDeck;
+}
+
+
+console.log(shuffleDeck());
