@@ -42,6 +42,17 @@ export function dealPlayerCards(shuffledDeck, usersArray) {
     }
 }
 
+export function burnAndTurn(shuffledDeck, turnAmount) {
+    const dealtArray = [];
+    shuffledDeck.pop();
+
+    for (let i = 0; i < turnAmount; i++) {
+        dealtArray.push(shuffledDeck.pop());
+    }
+
+    return dealtArray;
+}
+
 const users = [
     {
         name: 'Cinturtle',
@@ -58,3 +69,5 @@ const deck = shuffleDeck();
 dealPlayerCards(deck, users);
 
 console.log(users);
+
+console.log(burnAndTurn(deck, 3))
